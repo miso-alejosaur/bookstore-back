@@ -50,11 +50,20 @@ import co.edu.uniandes.dse.bookstore.services.BookEditorialService;
 @RequestMapping("/books")
 public class BookEditorialController {
 
-	@Autowired
-	private BookEditorialService bookEditorialService;
+	private final BookEditorialService bookEditorialService;
+	private final ModelMapper modelMapper;
 
 	@Autowired
-	private ModelMapper modelMapper;
+	public BookEditorialController (BookEditorialService bookEditorialService){
+		this.bookEditorialService = bookEditorialService;
+	}
+	
+
+	@Autowired
+	public BookEditorialController (ModelMapper modelMapper){
+		this.modelMapper = modelMapper;
+	}
+	 
 
 	/**
 	 * Remplaza la instancia de Editorial asociada a un Book.

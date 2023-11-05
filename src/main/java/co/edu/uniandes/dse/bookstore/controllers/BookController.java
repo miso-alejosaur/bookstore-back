@@ -55,11 +55,20 @@ import co.edu.uniandes.dse.bookstore.services.BookService;
 @RequestMapping("/books")
 public class BookController {
 
-	@Autowired
-	private BookService bookService;
+	private final BookService bookService;
+	private final ModelMapper modelMapper;
 
 	@Autowired
-	private ModelMapper modelMapper;
+	public BookController(BookService bookService){
+		this.bookService = bookService;
+	}
+	
+
+	@Autowired
+	public BookController(ModelMapper modelMapper){
+		this.modelMapper = modelMapper;
+	}
+	
 
 	/**
 	 * Busca y devuelve todos los libros que existen en la aplicacion.
