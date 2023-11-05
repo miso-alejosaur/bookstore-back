@@ -55,11 +55,19 @@ import co.edu.uniandes.dse.bookstore.services.BookAuthorService;
 @RequestMapping("/books")
 public class BookAuthorController {
 
-	@Autowired
-	private BookAuthorService bookAuthorService;
+	private final BookAuthorService bookAuthorService;
+
+	private final  ModelMapper modelMapper;
 
 	@Autowired
-	private ModelMapper modelMapper;
+	public BookAuthorController(BookAuthorService bookAuthorService){
+		this.bookAuthorService = bookAuthorService;
+	}
+
+	@Autowired
+	public BookAuthorController(ModelMapper modelMapper){
+		this.modelMapper = modelMapper;
+	}
 
 	/**
 	 * Asocia un autor existente con un libro existente
