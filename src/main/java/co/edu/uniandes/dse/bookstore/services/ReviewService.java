@@ -54,6 +54,9 @@ public class ReviewService {
 
 	@Autowired
 	BookRepository bookRepository;
+
+	@Resource
+	private ReviewService
 	
 	
 	/**
@@ -166,7 +169,7 @@ public class ReviewService {
 		if (bookEntity.isEmpty())
 			throw new EntityNotFoundException(ErrorMessage.BOOK_NOT_FOUND);
 
-		ReviewEntity review = getReview(bookId, reviewId);
+		ReviewEntity review = ReviewService.getReview(bookId, reviewId);
 		if (review == null) {
 			throw new EntityNotFoundException(ErrorMessage.REVIEW_NOT_FOUND);
 		}
