@@ -56,7 +56,7 @@ public class ReviewService {
 	BookRepository bookRepository;
 
 	@Resource
-	private ReviewService
+	private ReviewService;
 	
 	
 	/**
